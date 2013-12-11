@@ -1,1 +1,17 @@
-<p>List your employees here</p>
+<h1>Generic Company Employees Payroll File</h1>
+
+<% @employee.each do |employee| %>
+  <% if employee.role == 'Owner' %>
+
+  <p><span style="font-size:125%; background-color:yellow"><%= "Name:  #{employee.name},  Title:  #{employee.role},  Gross Salary:  $#{employee.salary},  Net Pay:  $#{employee.net_pay}" %></p></span>
+
+  <% elsif employee.role == 'Commission' %>
+
+  <p><span style="color:green; font-weight:bold"><%= "Name:  #{employee.name},  Title:  #{employee.role},  Gross Salary:  $#{employee.salary},  Net Pay:  $#{employee.net_pay}" %></span></p>
+
+  <% else %>
+
+  <p><%= "Name:  #{employee.name},  Title:  #{employee.role},  Gross Salary:  $#{employee.salary},  Net Pay:  $#{employee.net_pay}" %></p>
+
+  <% end %>
+<% end %>
